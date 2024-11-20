@@ -26,7 +26,7 @@
         "locales": {
             "en_US": true
         },
-        "parentTheme": "@scandipwa/scandipwa",
+        "parentTheme": "node_modules/@scandipwa/scandipwa",
         "extensions": {
             "@scandipwa/ts-server-plugin": true
         }

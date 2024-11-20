@@ -1,14 +1,31 @@
-module.exports = {
-    devServer: {
-        disableHostCheck: true,
-        port: '8080',
-        inline: true,
-        client: {
-            allowedHosts: 'all',
-            host: '0.0.0.0',
+export const devServer = {
+    proxy: {
+        '/default': {
+            target: 'https://40kskudemo.scandipwa.com',
+            changeOrigin: true,
+            secure: false,
         },
-        hot: true, // Ενεργοποίηση Hot Module Replacement (HMR)
-        compress: true, // Συμπίεση των resources
-        historyApiFallback: true, // Για Single Page Applications
     },
+    disableHostCheck: true,
+    port: '8080',
+    inline: true,
+    client: {
+        allowedHosts: 'all',
+        host: '0.0.0.0',
+    },
+    hot: true,
+    compress: true, // Συμπίεση των resources
+    historyApiFallback: true, // Για Single Page Applications
+};
+export const module = {
+    rules: [
+        {
+            test: /\.scss$/,
+            use: [
+                'style-loader', // Injects styles into DOM
+                'css-loader', // Resolves CSS imports
+                'sass-loader', // Compiles SCSS to CSS
+            ],
+        },
+    ],
 };
